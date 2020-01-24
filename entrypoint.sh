@@ -84,7 +84,7 @@ else
     NAMESPACE_CMD=""
 fi
 
-GITHUB_BRANCH=[[ ! -z "$GITHUB_HEAD_REF" ]] && echo $GITHUB_HEAD_REF || echo ${GITHUB_REF#refs/heads/}
+GITHUB_BRANCH=`[[ ! -z "$GITHUB_HEAD_REF" ]] && echo $GITHUB_HEAD_REF || echo  ${GITHUB_REF#refs/heads/}`
 
 # Execute the command
 ARGO_CMD="argo submit $INPUT_WORKFLOW_YAML_PATH --name $WORKFLOW_NAME $NAMESPACE_CMD $PARAM_FILE_CMD -p github_branch=$GITHUB_BRANCH"
