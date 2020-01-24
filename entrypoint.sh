@@ -87,7 +87,7 @@ fi
 GITHUB_BRANCH=`[[ ! -z "$GITHUB_HEAD_REF" ]] && echo $GITHUB_HEAD_REF || echo  ${GITHUB_REF#refs/heads/}`
 
 # Execute the command
-ARGO_CMD="argo submit $INPUT_WORKFLOW_YAML_PATH --name $WORKFLOW_NAME $NAMESPACE_CMD $PARAM_FILE_CMD -p github_branch=$GITHUB_BRANCH"
+ARGO_CMD="argo submit $INPUT_WORKFLOW_YAML_PATH --name $WORKFLOW_NAME $NAMESPACE_CMD $PARAM_FILE_CMD -p github-branch=$GITHUB_BRANCH"
 echo "executing command: $ARGO_CMD"
 eval $ARGO_CMD
 
