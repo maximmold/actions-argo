@@ -75,8 +75,15 @@ else
     PARAM_FILE_CMD=""
 fi
 
+# If the optional argument NAMESPACE is supplied, add additional --namespace <namespace> argument to `argo submit` command
+if [ ! -z "$INPUT_NAMESPACE" ]; then
+    NAMESPACE_CMD="-f $INPUT_NAMESPACE"
+else
+    NAMESPACE_CMD=""
+fi
+
 # Execute the command
-ARGO_CMD="argo submit $INPUT_WORKFLOW_YAML_PATH --name $WORKFLOW_NAME $PARAM_FILE_CMD"
+ARGO_CMD="argo submit $INPUT_WORKFLOW_YAML_PATH --name $WORKFLOW_NAME $NAMESPACE_CMD $PARAM_FILE_CMD"
 echo "executing command: $ARGO_CMD"
 eval $ARGO_CMD
 
