@@ -79,7 +79,7 @@ echo "Namespace provided: $INPUT_NAMESPACE"
 
 # If the optional argument NAMESPACE is supplied, add additional --namespace <namespace> argument to `argo submit` command
 if [ ! -z "$INPUT_NAMESPACE" ]; then
-    NAMESPACE_CMD="-f $INPUT_NAMESPACE"
+    NAMESPACE_CMD="--namespace $INPUT_NAMESPACE"
 else
     NAMESPACE_CMD=""
 fi
