@@ -85,7 +85,7 @@ else
 fi
 
 # Execute the command
-ARGO_CMD="argo submit $INPUT_WORKFLOW_YAML_PATH --name $WORKFLOW_NAME $NAMESPACE_CMD $PARAM_FILE_CMD"
+ARGO_CMD="argo submit $INPUT_WORKFLOW_YAML_PATH --name $WORKFLOW_NAME $NAMESPACE_CMD $PARAM_FILE_CMD -p github_branch=$INPUT_GITHUB_BRANCH"
 echo "executing command: $ARGO_CMD"
 eval $ARGO_CMD
 
