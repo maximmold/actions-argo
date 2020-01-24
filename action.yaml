@@ -16,6 +16,9 @@ inputs:
     description: The optional namespace to apply the Argo command to. Otherwise, defaults to namespace specified in current kube config context.
     require: false
     default: ""
+  github_branch:
+    description: The github branch where this action is taking place so various resources can be cleaned up that are tried to the branch
+    require: true
 outputs:
   WORKFLOW_URL:
     description: URL that is a link to the current run in Argo.
